@@ -1,7 +1,8 @@
 # CinExperience
-Text mining project to understand what drives students of San Francisco to the movie theaters.
-You can access the Web Dashboard <a href="https://andremy88.shinyapps.io/CinExperience/" target="_blank">here</a> . 
-In case is not reachable, contact me ([Andre Remy](mailto:andreremy88@gmail.com)) and ask me to start the application.
+Text mining project built using shiny dashboard and R to understand what drives students of San Francisco to the movie 
+theaters. You can access the Web Dashboard [here](https://andremy88.shinyapps.io/CinExperience/). 
+In case the dashboard is not reachable, contact me ([Andre Remy](mailto:andreremy88@gmail.com)) and ask me to start 
+the application.
 
 ## The Challenge
 While talking between different colleagues, we found that most of us like to watch movies; but there was one problem. 
@@ -51,9 +52,9 @@ confirm or deny these topics.
 ![LDA](./docs/images/lda-topics.png)
 
 ## The Team
-- <a href="https://www.linkedin.com/in/andremy">Andre Remy</a>
-- <a href="https://www.linkedin.com/in/hyelimkim93/">Hye Lim Kim (Becky)</a>
-- <a href="https://www.linkedin.com/in/mario-palazuelos-argaiz/)">Mario Palazuelos</a>
-- <a href="https://www.linkedin.com/in/matsblunde/">Mats Lunde</a>
-- <a>Mohammed Yahya</a>
-- <a href="https://www.linkedin.com/in/zhiyi-chen-4a987619a/">Zhiyi Chen</a>
+- [Andre Remy](https://www.linkedin.com/in/andremy)
+- [Hye Lim Kim (Becky)](https://www.linkedin.com/in/hyelimkim93/)
+- [Mario Palazuelos](https://www.linkedin.com/in/mario-palazuelos-argaiz/)
+- [Mats Lunde](https://www.linkedin.com/in/matsblunde/)
+- Mohammed Yahya
+- [Zhiyi Chen](https://www.linkedin.com/in/zhiyi-chen-4a987619a/)
