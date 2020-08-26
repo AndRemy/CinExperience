@@ -8,7 +8,8 @@ shinyUI(
             tags$meta(name="application-name", content="Text Mining Student Cinema Experience"),
             tags$meta(name="author", content="HULT MSBA 2020 Candidates"),
             tags$meta(name="description", content="Text mining project to understand the motivation the motivation that drives students from San Francisco to the cinema."),
-            tags$meta(name="keywords", content="NLP, LDA, Speech-to-Text, Text Analytics, Sentiment Analysis")
+            tags$meta(name="keywords", content="NLP, LDA, Speech-to-Text, Text Analytics, Sentiment Analysis"),
+            tags$meta(name="image", content="./docs/images/dashboard.png")
         ),
         skin   = "green",
         header = dashboardHeader(
@@ -188,13 +189,13 @@ shinyUI(
                                     title = "Mohammed Yahya",
                                     icon(name = "linkedin", lib = "font-awesome"),
                                     span(": "),
-                                    tags$a("linkedin.com/", href="https://www.linkedin.com/")
+                                    tags$a("linkedin.com/", href="https://www.linkedin.com/", target="_blank")
                                 ),
                                 box(
                                     title = "Mario Palazuelos",
                                     icon(name = "linkedin", lib = "font-awesome"),
                                     span(": "),
-                                    tags$a("in/mario-palazuelos-argaiz/", href="https://www.linkedin.com/in/mario-palazuelos-argaiz/")
+                                    tags$a("in/mario-palazuelos-argaiz/", href="https://www.linkedin.com/in/mario-palazuelos-argaiz/", target="_blank")
                                 )
                             ),
                             fluidRow(
@@ -202,13 +203,13 @@ shinyUI(
                                     title = "Zhiyi Chen",
                                     icon(name = "linkedin", lib = "font-awesome"),
                                     span(": "),
-                                    tags$a("linkedin.com/", href="https://www.linkedin.com/")
+                                    tags$a("linkedin.com/", href="https://www.linkedin.com/in/zhiyi-chen-4a987619a/", target="_blank")
                                 ),
                                 box(
                                     title = "Hye Lim Kim",
                                     icon(name = "linkedin", lib = "font-awesome"),
                                     span(": "),
-                                    tags$a("linkedin.com/", href="https://www.linkedin.com/")
+                                    tags$a("linkedin.com/", href="https://www.linkedin.com/in/hyelimkim93/", target="_blank")
                                 )
                             ),
                             fluidRow(
@@ -216,13 +217,13 @@ shinyUI(
                                     title = "Mats Lunde",
                                     icon(name = "linkedin", lib = "font-awesome"),
                                     span(": "),
-                                    tags$a("in/matsblunde/", href="https://www.linkedin.com/in/matsblunde/")
+                                    tags$a("in/matsblunde/", href="https://www.linkedin.com/in/matsblunde/", target="_blank")
                                 ),
                                 box(
                                     title = "Andre Remy",
                                     icon(name = "linkedin", lib = "font-awesome"),
                                     span(": "),
-                                    tags$a("in/andremy/", href="https://www.linkedin.com/in/andremy/")
+                                    tags$a("in/andremy/", href="https://www.linkedin.com/in/andremy/", target="_blank")
                                 )
                             )
                         )

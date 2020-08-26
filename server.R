@@ -1,6 +1,8 @@
-# Library dependencies
+# [1]: Library dependencies
 if (!require("textdata")) install.packages("textdata")
+if (!require("ggplot2")) install.packages("ggplot2")
 
+# Text Analytics libraries
 library(dplyr)
 library(textreadr)
 library(tidyverse)
@@ -16,17 +18,32 @@ library(ggraph)
 library(wordcloud)
 library(reshape2)
 
+# Library for shiny app
 library(shiny)
+# [1]: End
 
+
+# [2]: Loading required libraries
+tryCatch({
+  afinn_sentiment <<- get_sentiments(lexicon="afinn")
+  bing_sentiment  <<- get_sentiments(lexicon="bing")
+  nrc_sentiment   <<- get_sentiments(lexicon="nrc")
+}, error = function(ex) {
+  # This lines were addedd because in the shinyapps server I couldn't dowload them
+  afinn_sentiment <<- read.csv("./libraries/afinn.csv")
+  bing_sentiment  <<- read.csv("./libraries/bing.csv")
+  nrc_sentiment   <<- read.csv("./libraries/nrc.csv")
+}
+)
+
+# Custom stop words
 custom_stop_words <<- data.frame(word = "null", stringsAsFactors = FALSE)
+# [2]: End
 
-afinn_sentiment <<- read.csv("afinn.csv")
-bing_sentiment  <<- read.csv("bing.csv")
-nrc_sentiment   <<- read.csv("nrc.csv")
 
+# [3]: Loading and formating survey answers
 load_data <- function(){
-  #setwd("C:/Users/Andre/Documents/AndRemy/Hult/2.MSBA/2.Spring Term/4.Text Analytics/3.Assignments/A1-Team/CinExperience")
-  text_file     <- "SurveyAnswers1and2.txt"
+  text_file     <- "./answers/SurveyAnswers1and2.txt"
   answers       <- read_document(file = text_file)
   surveyed      <- c(0, rep(1:(length(answers)-1)%/%6)) + 1
   question      <- rep(1:6, time = length(answers)/6)
@@ -41,7 +58,10 @@ load_data <- function(){
   
   return(answers_df)
 }
+# [3]: End
 
+
+# [4]: Function that allows the tokenization of the data.
 tokenize_data <- function(answers_df, bigram = FALSE, include_stopwords = 0){
   
   if(bigram == FALSE){
@@ -99,7 +119,10 @@ tokenize_data <- function(answers_df, bigram = FALSE, include_stopwords = 0){
   
   return(tidy_answers)
 }
+# [4]: End
 
+
+# [5]: Function that returns the LDA model based on the number of topics sent as parameter
 lda_analysis_per_question <- function(data_set, topic_number = 2){
   #Casting DTM by question
   answers_dtm <- data_set %>%
@@ -110,8 +133,10 @@ lda_analysis_per_question <- function(data_set, topic_number = 2){
   
   return(ap_lda)
 }
+# [5]: End
 
-# Define server logic required to draw a histogram
+
+# [6]: Server side code to the UI
 shinyServer(function(input, output) {
   answers_df <- load_data()
   tidy_answers <- tokenize_data(answers_df = answers_df,
@@ -120,11 +145,11 @@ shinyServer(function(input, output) {
   output$intro_text <- renderUI({
     html <-
       "<span>
-        While talking between different collegues, we found that most of us like to watch movies BUT there was one problem. Not all of them were going to the movie theatre lately.
+        While talking between different colleagues, we found that most of us like to watch movies BUT there was one problem. Not all of them were going to the movie theatre lately.
         To understand why was this happening, <u>our team designed a survey that aimed to help us understand what can this industry do to attract students back to the movie theatre.</u>
         <br/>
         <br/>
-        <b>Audience:</b> Students in San Franciso<br />
+        <b>Audience:</b> Students in San Francisco<br />
         <b>Sample Size:</b> 50<br />
         <b>Survey Date:</b> Feb. 3rd, 2020<br />
         <b>Questions:</b>
@@ -368,3 +393,4 @@ shinyServer(function(input, output) {
     HTML(html)
   })
 })
+# [6]: End
